@@ -34,7 +34,7 @@
 std::map<int, struct timer*> timers;
 int lastTimerId = 1;
 
-int CreateTimer(AMX *amx, cell playerid, cell funcname, cell interval, cell delay, cell repeat, cell format, cell *params)
+int CreateTimer(AMX *amx, cell playerid, cell funcname, cell interval, cell delay, cell repeat, cell format, const cell *params)
 {
     struct timer *t = (struct timer*) malloc(sizeof(struct timer));
     if (t == NULL)

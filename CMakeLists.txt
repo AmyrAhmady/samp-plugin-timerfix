@@ -55,6 +55,8 @@ if(HAVE_STDINT_H)
     add_definitions(-DHAVE_STDINT_H)
 endif()
 
+add_definitions(-DPAWN_CELL_SIZE=32)
+
 # Include directories
 target_include_directories(timerfix PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src/sdk/amx
@@ -63,24 +65,38 @@ target_include_directories(timerfix PRIVATE
 
 # Platform-specific settings
 if(UNIX)
+    # Set default TARGET_ARCH to x86 if not provided
+    if(NOT DEFINED TARGET_ARCH)
+        set(TARGET_ARCH "x86")
+    endif()
+
     # Linux build settings (from Makefile)
     target_compile_options(timerfix PRIVATE
-        -m32
         -O3
         -w
         -Wall
         -fPIC
+        -fpermissive
     )
+
+    # Apply -m32 flag only for x86 architecture
+    if(TARGET_ARCH STREQUAL "x86")
+        target_compile_options(timerfix PRIVATE -m32)
+        set_target_properties(timerfix PROPERTIES
+            PREFIX ""
+            SUFFIX ".so"
+            LINK_FLAGS "-m32"
+        )
+    else()
+        set_target_properties(timerfix PROPERTIES
+            PREFIX ""
+            SUFFIX ".so"
+        )
+    endif()
 
     target_compile_definitions(timerfix PRIVATE LINUX)
 
     target_link_libraries(timerfix PRIVATE rt)
-
-    set_target_properties(timerfix PROPERTIES
-        PREFIX ""
-        SUFFIX ".so"
-        LINK_FLAGS "-m32"
-    )
 
 elseif(WIN32)
     # Use .def file for exports

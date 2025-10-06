@@ -43,7 +43,7 @@ struct timer
 
 extern std::map<int, struct timer*> timers;
 
-extern int CreateTimer(AMX *amx, cell playerid, cell funcname, cell interval, cell delay, cell repeat, cell format, cell *params);
+extern int CreateTimer(AMX *amx, cell playerid, cell funcname, cell interval, cell delay, cell repeat, cell format, const cell *params);
 extern bool TimerExists(int id);
 extern void DestroyTimer(struct timer *&t);
 extern int ExecuteTimer(struct timer *t);

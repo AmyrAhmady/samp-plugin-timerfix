@@ -2,24 +2,11 @@
 
 #include <amx/amx.h>
 #include <string>
-
-#define USENAMETABLE(hdr) \
-	((hdr)->defsize==sizeof(AMX_FUNCSTUBNT))
-
-#define NUMENTRIES(hdr,field,nextfield) \
-	(unsigned)(((hdr)->nextfield - (hdr)->field) / (hdr)->defsize)
-
-#define GETENTRY(hdr,table,index) \
-	(AMX_FUNCSTUB *)((unsigned char*)(hdr) + (unsigned)(hdr)->table + (unsigned)index*(hdr)->defsize)
-
-#define GETENTRYNAME(hdr,entry) \
-	(USENAMETABLE(hdr) ? \
-		(char *)((unsigned char*)(hdr) + (unsigned)((AMX_FUNCSTUBNT*)(entry))->nameofs) : \
-		((AMX_FUNCSTUB*)(entry))->name)
+#include <cstring>
 
 inline void AMXAPI amx_Redirect(AMX* amx, char* from, ucell to, AMX_NATIVE* store) {
 	AMX_HEADER* hdr = (AMX_HEADER*)amx->base;
-	AMX_FUNCSTUB* func;
+	AMX_FUNCPART* func;
 	for (int idx = 0, num = NUMENTRIES(hdr, natives, libraries); idx != num; ++idx) {
 		func = GETENTRY(hdr, natives, idx);
 		if (!strcmp(from, GETENTRYNAME(hdr, func))) {
@@ -54,7 +41,7 @@ inline void AMXAPI amx_SetCString(AMX* amx, cell param, char* str, int len) {
 
 inline std::string AMXAPI amx_GetCppString(AMX* amx, cell param) {
 	char* tmp;
-	amx_StrParam(amx, param, tmp);
+	amx_StrParamChar(amx, param, tmp);
 	if (tmp != NULL) {
 		return tmp;
 	}

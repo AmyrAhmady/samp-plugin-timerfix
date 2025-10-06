@@ -30,26 +30,26 @@
 class Natives
 {
 public:
-    static cell AMX_NATIVE_CALL GetTickCount(AMX *amx, cell *params);
-    static cell AMX_NATIVE_CALL IsValidTimer(AMX *amx, cell *params);
-    static cell AMX_NATIVE_CALL GetActiveTimers(AMX *amx, cell *params);
-    static cell AMX_NATIVE_CALL KillTimer(AMX *amx, cell *params);
-    static cell AMX_NATIVE_CALL KillPlayerTimers(AMX *amx, cell *params);
-    static cell AMX_NATIVE_CALL SetTimer(AMX *amx, cell *params);
-    static cell AMX_NATIVE_CALL SetTimerEx(AMX *amx, cell *params);
-    static cell AMX_NATIVE_CALL SetTimer_(AMX *amx, cell *params);
-    static cell AMX_NATIVE_CALL SetTimerEx_(AMX *amx, cell *params);
-    static cell AMX_NATIVE_CALL SetPlayerTimer(AMX *amx, cell *params);
-    static cell AMX_NATIVE_CALL SetPlayerTimerEx(AMX *amx, cell *params);
-    static cell AMX_NATIVE_CALL SetPlayerTimer_(AMX *amx, cell *params);
-    static cell AMX_NATIVE_CALL SetPlayerTimerEx_(AMX *amx, cell *params);
-    static cell AMX_NATIVE_CALL GetTimerFunctionName(AMX *amx, cell *params);
-    static cell AMX_NATIVE_CALL SetTimerInterval(AMX *amx, cell *params);
-    static cell AMX_NATIVE_CALL GetTimerInterval(AMX *amx, cell *params);
-    static cell AMX_NATIVE_CALL GetTimerIntervalLeft(AMX *amx, cell *params);
-    static cell AMX_NATIVE_CALL SetTimerDelay(AMX *amx, cell *params);
-    static cell AMX_NATIVE_CALL SetTimerCount(AMX *amx, cell *params);
-    static cell AMX_NATIVE_CALL GetTimerCallsLeft(AMX *amx, cell *params);
+    static cell AMX_NATIVE_CALL GetTickCount(AMX *amx, const cell *params);
+    static cell AMX_NATIVE_CALL IsValidTimer(AMX *amx, const cell *params);
+    static cell AMX_NATIVE_CALL GetActiveTimers(AMX *amx, const cell *params);
+    static cell AMX_NATIVE_CALL KillTimer(AMX *amx, const cell *params);
+    static cell AMX_NATIVE_CALL KillPlayerTimers(AMX *amx, const cell *params);
+    static cell AMX_NATIVE_CALL SetTimer(AMX *amx, const cell *params);
+    static cell AMX_NATIVE_CALL SetTimerEx(AMX *amx, const cell *params);
+    static cell AMX_NATIVE_CALL SetTimer_(AMX *amx, const cell *params);
+    static cell AMX_NATIVE_CALL SetTimerEx_(AMX *amx, const cell *params);
+    static cell AMX_NATIVE_CALL SetPlayerTimer(AMX *amx, const cell *params);
+    static cell AMX_NATIVE_CALL SetPlayerTimerEx(AMX *amx, const cell *params);
+    static cell AMX_NATIVE_CALL SetPlayerTimer_(AMX *amx, const cell *params);
+    static cell AMX_NATIVE_CALL SetPlayerTimerEx_(AMX *amx, const cell *params);
+    static cell AMX_NATIVE_CALL GetTimerFunctionName(AMX *amx, const cell *params);
+    static cell AMX_NATIVE_CALL SetTimerInterval(AMX *amx, const cell *params);
+    static cell AMX_NATIVE_CALL GetTimerInterval(AMX *amx, const cell *params);
+    static cell AMX_NATIVE_CALL GetTimerIntervalLeft(AMX *amx, const cell *params);
+    static cell AMX_NATIVE_CALL SetTimerDelay(AMX *amx, const cell *params);
+    static cell AMX_NATIVE_CALL SetTimerCount(AMX *amx, const cell *params);
+    static cell AMX_NATIVE_CALL GetTimerCallsLeft(AMX *amx, const cell *params);
 private:
     Natives();
     ~Natives();
