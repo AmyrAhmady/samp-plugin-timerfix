@@ -29,6 +29,7 @@
 
 #include "main.h"
 #include "time.h"
+#include "common.h"
 
 std::map<int, struct timer*> timers;
 int lastTimerId = 1;

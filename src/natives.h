@@ -26,7 +26,6 @@
 #pragma once
 
 #include "sdk/amx/amx.h"
-#include "sdk/amx/amx2.h"
 
 class Natives
 {

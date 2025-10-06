@@ -32,6 +32,7 @@
 #include "main.h"
 #include "time.h"
 #include "timers.h"
+#include "common.h"
 
 cell AMX_NATIVE_CALL Natives::GetTickCount(AMX *amx, cell *params)
 {

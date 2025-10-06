@@ -28,12 +28,12 @@
 #include <map>
 
 #include "sdk/amx/amx.h"
-#include "sdk/amx/amx2.h"
 #include "sdk/plugincommon.h"
 
 #include "time.h"
 #include "timers.h"
 #include "natives.h"
+#include "common.h"
 
 extern void *pAMXFunctions;
 logprintf_t logprintf;

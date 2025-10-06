@@ -29,7 +29,6 @@
 #include <vector>
 
 #include "sdk/amx/amx.h"
-#include "sdk/amx/amx2.h"
 
 struct timer
 {
